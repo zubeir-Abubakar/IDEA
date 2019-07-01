@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% import 'macros.html' as macro%}
+
+
+{% block content %}
+
+    <div class="container">
+        <a class="btn btn-primary text-center text-danger" style="float:right;" href="{{url_for('main.new_pitch',id=category.id)}}"> Post an Idea</a>
+    </div>
+         
+    <br>
+    <br>
+    
+    <div class=" col-md-10 col-md-offset-1 col-sm-12">
+        
+        
+        <h3 class="text-center">{{category.name|upper}}</h3>
+        
+        <hr>
+ 
+    </div>
+
+    {% if pitches %}
+      <div class="col-sm-12 col-md-8">
+          {{ macro.displayPitches(pitches)}}
+      </div>
+    {%else%}
+        <div class="well">
+          <h4 style="padding:10%; text-align:center; font-size:50px">NO IDEAS IN THIS CATEGORY. </h4>
+        </div>
+  {% endif %}
+
+{% endblock %}

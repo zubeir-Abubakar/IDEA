@@ -1,0 +1,55 @@
+<style>
+    body{
+        background-image: url(/static/photos/pp.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h{
+        color: beige;
+    }
+  
+</style>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block styles%}
+    {{ super() }} <!--super() function tells Jinja not to override any code that is defined in the block-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<br>
+    <div class="container-fluid" style="font-family: 'Russo One', sans-serif;">
+    <div class="row"> 
+        
+        <div class="container" id="block-text">
+        <br>
+        <div class="col-md-6">
+            <img src="/static/photos/m.jpg" style= " height:300px; border-radius: 100px">
+        </div>
+        
+
+        <br>
+        <!-- <div class="col-md-6"> -->
+        <p style="font-style: italic;margin-left: 40px; margin-top: 40px; color: beige; background:goldenrod; border-radius: 30px; font-size:x-large;"> <strong> IN LIFE YOU ONLY HAVE 60 SECONDS TO IMPRESS SOMEONE . ONE MINUTE TO MAKE OR BREAK YOU . HOW DO WE MAKE SURE THAT  YOU USE YOUR ONE INUTE TO  ACTUALLY SAY SOMETHING MEANINGFUL ? </strong></p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <br>
+    <h2 style="color:bisque;"> <strong>IDEA CATEGORIES </strong></h2>
+    <strong style="font-size: 20px; color: bisque;">{{ macro.displayCategoryList(category) }} </strong>
+    <br>
+    <br>
+    
+    
+    <h3 class="add-category"><a class="btn btn-primary" href="/add/category" style="background-color:brown; float:right;"><span aria-hidden="true"> ADD CATEGORY </span></a></h3>   
+</div>
+
+
+{% endblock  %}

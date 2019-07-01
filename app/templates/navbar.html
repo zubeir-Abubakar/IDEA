@@ -1,0 +1,39 @@
+<style>
+ul,a{
+    background: mediumblue;
+}
+</style>
+{% extends 'base.html' %}
+{% block navbar %}
+
+
+
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> The Idea  </a>
+            <ul class="nav navbar-nav">
+                
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}"> <strong>{{current_user.username| upper}} </strong></a></li>
+                <li><a href="{{url_for('auth.logout')}}">SIGN OUT</a></li>
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}">SIGN IN</a></li>
+                {%endif%}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
