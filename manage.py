@@ -10,7 +10,7 @@ app = create_app('production')
 manager = Manager(app)
 migrate = Migrate(app, db)
 
-manager.add_command('db', Migrat eCommand)
+manager.add_command('db', MigrateCommand)
 
 manager.add_command('server',Server)
 @manager.command
