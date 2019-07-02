@@ -25,7 +25,7 @@ ul,a{
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li><a href="{{url_for('main.profile',uname=current_user.username)}}"> <strong>{{current_user.username| upper}} </strong></a></li>
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}"> <strong>WELCOME TO THE IDEA PITCHING PAGE 😎💡 {{current_user.username| capitalize}} </strong></a></li>
                 <li><a href="{{url_for('auth.logout')}}">SIGN OUT</a></li>
                 {% else %}
                 <li><a href="{{url_for('auth.login')}}">SIGN IN</a></li>
